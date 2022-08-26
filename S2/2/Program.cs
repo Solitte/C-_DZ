@@ -9,7 +9,7 @@ void ThirdDigit(int number, int numberdigit)
         num = num/10;
     }
 
-    if (count > numberdigit)
+    if (count >= numberdigit)
     {
         int n = count-numberdigit;
         while ( n > 0)
