@@ -31,7 +31,7 @@ bool Palindrom(int number)
     return true;
 }
 
-Console.WriteLine("Input number ");
+Console.WriteLine("Input number");
 int number = Convert.ToInt32(Console.ReadLine());
 if (number>9)
 {
