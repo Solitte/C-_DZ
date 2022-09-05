@@ -89,7 +89,7 @@ double[] RandomArray(int size, int n)
     double[] array = new double[size];
     for (int i = 0; i < size; i++)
     {
-        array[i] = new Random().NextDouble()*n;
+        array[i] = Math.Round(new Random().NextDouble()*n,2);
     }
     return array;
 }
@@ -133,4 +133,4 @@ double[] array = RandomArray(size, n);
 PrintArray(array);
 Console.WriteLine();
 double dif = DifferenceMaxMin (array);
-Console.WriteLine("Difference between the maximum and minimum element of the array: "+dif);
+Console.WriteLine($"Difference between the maximum and minimum element of the array: {dif}");
