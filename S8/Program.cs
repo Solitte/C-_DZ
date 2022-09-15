@@ -1,5 +1,5 @@
 ﻿// Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-
+/*
 int[,] Random2DArray()
 {
     Console.WriteLine("Input the rows of the array");
@@ -68,6 +68,72 @@ int[,] array = Random2DArray();
 Print2DArray(array);
 int[,] arr = Sorting2DArray(array);
 Print2DArray(arr);
+*/
+
+//Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+int[,] Random2DArray()
+{
+    Console.WriteLine("Input the rows of the array");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the columns of the array");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the minimum number of the array");
+    int minElem = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Input the maximum number of the array");
+    int maxElem = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+
+
+    int[,] table = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < columns; j++)
+            table[i,j] = new Random().Next(minElem, maxElem+1);
+    
+    return table;
+}
+
+void Print2DArray(int[,] table)
+{
+    for (int i = 0; i < table.GetLength(0); i++)
+    {
+        for (int j = 0; j < table.GetLength(1); j++)
+            Console.Write($"{table[i,j]} ");
+        Console.WriteLine();
+    }
+    Console.WriteLine();   
+}
+
+int SumMinElemArray(int[,] table)
+{ 
+    int m = 0;
+    int minsum = 0 ;  
+    for (int i = 0; i < table.GetLength(0); i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < table.GetLength(1); j++)
+        {
+            sum = sum + table[i,j];
+        }
+        if(i == 0)
+        {
+            minsum = sum;
+            m = i;
+        }
+        if(sum < minsum)
+        {
+            minsum = sum;
+            m = i;
+        }
+    }
+    Console.WriteLine($"Minimum sum of elements: {minsum}");
+    return m;   
+}
+
+int[,] array = Random2DArray();
+Print2DArray(array);
+int row = SumMinElemArray(array);
+Console.WriteLine($"Row with minimum sum of elements: {row}");
 
 
 // Задача 62. Напишите программу, которая заполнит спирально массив M на N.
@@ -129,3 +195,4 @@ void Print2DArray(int[,] table)
 int[,] array = SpiralArray();
 Print2DArray(array);
 */
+
